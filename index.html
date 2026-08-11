@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buzz Unplugged — Made to Order Wall Art &amp; Designs</title>
+<meta name="description" content="Build a wall from a few pieces that belong together. Choose from 3,000+ made-to-order designs and mix your own gallery wall arrangement.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+<!-- Tailwind (CDN, no build step) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            DEFAULT: '#1B2A4A',
+            50: '#EBEEF3',
+            100: '#D3D9E5',
+            600: '#25395F',
+            700: '#1B2A4A',
+            800: '#14213B',
+            900: '#0E172A',
+          },
+          maroon: {
+            DEFAULT: '#7C2333',
+            600: '#8F2A3D',
+            700: '#7C2333',
+          },
+          cream: '#F2ECE0',
+          paleblue: '#E9EEF6',
+          'red-badge': '#E4483C',
+        },
+        fontFamily: {
+          display: ['Poppins', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          accent: ['"Playfair Display"', 'serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Poppins', sans-serif; }
+  .font-accent { font-family: 'Playfair Display', serif; }
+
+  /* Placeholder image pattern: shows a labeled placeholder until a real
+     file is dropped into assets/images/ with the matching filename. */
+  .ph {
+    position: relative;
+    overflow: hidden;
+    background: repeating-linear-gradient(135deg, #EEF3F8, #EEF3F8 10px, #E4ECF4 10px, #E4ECF4 20px);
+  }
+  .ph .ph-label {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px; color: #7A8CA0; text-align: center; padding: 8px;
+  }
+  .ph .ph-label span { font-size: 11px; font-weight: 600; line-height: 1.3; overflow-wrap: break-word; }
+  .ph img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 500ms ease-out, transform 500ms ease-out; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  .skip-link:focus { transform: translateY(0); }
+
+  .icon-svg { display: inline-block; flex-shrink: 0; }
+</style>
+</head>
+
+<body class="bg-white text-navy-900 font-body antialiased">
+
+<a href="#main" class="skip-link fixed -translate-y-full focus:translate-y-0 top-0 left-0 z-[100] bg-navy text-white px-4 py-3 rounded-br-md transition-transform">Skip to main content</a>
+
+<!-- ============ 1. Promo banner (single flat image, 5:1) ============ -->
+<div class="ph w-full" style="aspect-ratio: 5/1;">
+  <div class="ph-label"><i class="ph ph-image text-2xl" aria-hidden="true"></i><span>promo-banner.jpg</span><span class="font-normal text-[10px] text-slate-400">Suggested: 2000×400px (5:1) — includes "YOUR WALL. Your vibe. Your way." headline, feature icons, and CTA baked into the image</span></div>
+  <img src="assets/images/promo-banner.jpg" alt="Promotional banner: Your Wall. Your vibe. Your way. Mix and match from 3,000+ designs — Build Your Wall." loading="eager" onerror="this.style.display='none'">
+</div>
+
+<!-- ============ 2. Utility bar ============ -->
+<div class="bg-navy text-white text-xs sm:text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
+    <p class="flex items-center gap-2">
+      <i class="ph ph-truck text-base" aria-hidden="true"></i>
+      <span>Free shipping on orders over $75</span>
+    </p>
+    <nav aria-label="Utility navigation" class="hidden sm:flex items-center gap-2 text-white/70">
+      <a href="#" class="hover:text-white transition-colors">About Us</a>
+      <span aria-hidden="true">|</span>
+      <a href="#" class="hover:text-white transition-colors">Reviews</a>
+      <span aria-hidden="true">|</span>
+      <a href="#" class="hover:text-white transition-colors">FAQs</a>
+      <span aria-hidden="true">|</span>
+      <a href="#" class="hover:text-white transition-colors">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ 3. Header ============ -->
+<header class="bg-white sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-20 flex items-center gap-4 sm:gap-8">
+      <a href="#main" class="flex-shrink-0 flex items-center" aria-label="Buzz Unplugged home">
+        <div class="ph rounded-md" style="width:180px;height:52px;">
+          <div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>logo.png</span></div>
+          <img src="assets/images/logo.png" alt="Buzz Unplugged — fox-head icon with Buzz Unplugged Art &amp; Designs wordmark" loading="eager" onerror="this.style.display='none'">
+        </div>
+      </a>
+
+      <form role="search" class="hidden md:flex flex-1 max-w-xl" onsubmit="return false;">
+        <label for="site-search" class="sr-only">Search designs</label>
+        <div class="relative w-full">
+          <input id="site-search" type="search" placeholder="Search 3,000+ designs..."
+            class="w-full h-11 rounded-full border-0 bg-gray-100 pl-5 pr-12 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-navy transition">
+          <button type="submit" aria-label="Search" class="absolute right-4 top-1/2 -translate-y-1/2 text-navy cursor-pointer">
+            <svg class="icon-svg text-base" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M229.66,218.34,179.6,168.28a88.11,88.11,0,1,0-11.32,11.32l50.06,50.06a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="ml-auto flex items-center gap-2 sm:gap-6">
+        <button type="button" class="hidden md:flex flex-col items-center gap-1 text-navy hover:text-maroon transition-colors cursor-pointer" title="Account (coming soon)">
+          <i class="ph ph-user text-2xl" aria-hidden="true"></i>
+          <span class="text-xs font-medium">Account</span>
+        </button>
+        <button type="button" class="hidden md:flex flex-col items-center gap-1 text-navy hover:text-maroon transition-colors cursor-pointer" title="Wishlist (coming soon)">
+          <i class="ph ph-heart text-2xl" aria-hidden="true"></i>
+          <span class="text-xs font-medium">Wishlist</span>
+        </button>
+        <button type="button" class="relative flex flex-col items-center gap-1 text-navy hover:text-maroon transition-colors cursor-pointer" title="Cart (coming soon)">
+          <span class="relative">
+            <i class="ph ph-bag text-2xl" aria-hidden="true"></i>
+            <span class="absolute -top-1.5 -right-2 bg-red-badge text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+          </span>
+          <span class="hidden md:block text-xs font-medium">Cart</span>
+        </button>
+        <button type="button" id="mobile-menu-btn" class="md:hidden text-navy cursor-pointer p-1" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon-svg text-2xl" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile search -->
+    <form role="search" class="md:hidden pb-4" onsubmit="return false;">
+      <label for="site-search-mobile" class="sr-only">Search designs</label>
+      <div class="relative">
+        <input id="site-search-mobile" type="search" placeholder="Search 3,000+ designs..."
+          class="w-full h-11 rounded-full border-0 bg-gray-100 pl-5 pr-12 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-navy">
+        <button type="submit" aria-label="Search" class="absolute right-4 top-1/2 -translate-y-1/2 text-navy cursor-pointer">
+          <svg class="icon-svg text-base" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M229.66,218.34,179.6,168.28a88.11,88.11,0,1,0-11.32,11.32l50.06,50.06a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Full-width navy nav bar -->
+  <nav aria-label="Product categories" class="hidden md:block bg-navy">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ul class="flex items-center justify-center gap-7 h-12 text-xs lg:text-sm font-semibold font-display uppercase tracking-wider text-white overflow-x-auto">
+        <li><a href="#catalog" class="hover:text-white/70 transition-colors whitespace-nowrap">BEST SELLERS</a></li>
+        <li><a href="#catalog" class="hover:text-white/70 transition-colors whitespace-nowrap">LOVERS' LANE ART</a></li>
+        <li><a href="#catalog" class="hover:text-white/70 transition-colors whitespace-nowrap">PREMIUM PRINTS</a></li>
+        <li><a href="#catalog" class="hover:text-white/70 transition-colors whitespace-nowrap">PATENT ART</a></li>
+        <li><a href="#catalog" class="hover:text-white/70 transition-colors whitespace-nowrap">NURSERY ART</a></li>
+        <li><a href="#catalog" class="hover:text-white/70 transition-colors whitespace-nowrap">MUSIC ART</a></li>
+        <li><a href="#catalog" class="hover:text-white/70 transition-colors whitespace-nowrap">DICTIONARY ART</a></li>
+        <li><a href="#gallery-wall" class="flex items-center gap-1.5 hover:text-white/70 transition-colors whitespace-nowrap">
+          BUILD YOUR WALL
+          <span class="bg-red-badge text-white text-[10px] font-bold px-1.5 py-0.5 rounded normal-case tracking-normal">New</span>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-slate-100 bg-white">
+    <ul class="px-4 py-3 space-y-1 text-sm font-semibold font-display text-navy">
+      <li><a href="#catalog" class="block py-2">BEST SELLERS</a></li>
+      <li><a href="#catalog" class="block py-2">LOVERS' LANE ART</a></li>
+      <li><a href="#catalog" class="block py-2">PREMIUM PRINTS</a></li>
+      <li><a href="#catalog" class="block py-2">PATENT ART</a></li>
+      <li><a href="#catalog" class="block py-2">NURSERY ART</a></li>
+      <li><a href="#catalog" class="block py-2">MUSIC ART</a></li>
+      <li><a href="#catalog" class="block py-2">DICTIONARY ART</a></li>
+      <li><a href="#gallery-wall" class="flex items-center gap-1.5 py-2">BUILD YOUR WALL <span class="bg-red-badge text-white text-[10px] font-bold px-1.5 py-0.5 rounded">New</span></a></li>
+      <li class="pt-2 mt-2 border-t border-slate-100 flex items-center gap-6">
+        <button type="button" class="flex items-center gap-2 text-navy cursor-pointer"><i class="ph ph-user text-xl" aria-hidden="true"></i>Account</button>
+        <button type="button" class="flex items-center gap-2 text-navy cursor-pointer"><i class="ph ph-heart text-xl" aria-hidden="true"></i>Wishlist</button>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 4. Hero (full-bleed image with overlay text) ============ -->
+  <section class="relative w-full h-[420px] sm:h-[520px] lg:h-[600px] overflow-hidden reveal">
+    <div class="ph absolute inset-0">
+      <div class="ph-label"><i class="ph ph-image text-3xl" aria-hidden="true"></i><span>hero-main-gallery-wall.jpg</span><span class="font-normal text-[10px] text-slate-400">Suggested: 2400×1400px — cream couch with teal &amp; mustard pillows beneath a mixed gallery wall, plant beside it</span></div>
+      <img src="assets/images/hero-main-gallery-wall.jpg" alt="Living room sofa in cream with teal and mustard pillows, styled beneath a gallery wall of mixed framed art prints, with a potted plant beside it" loading="eager" onerror="this.style.display='none'">
+    </div>
+
+    <div class="absolute inset-0 flex items-center">
+      <div class="w-full sm:w-[45%] h-full flex items-center bg-gradient-to-r from-cream/95 via-cream/60 to-transparent px-6 sm:px-10 lg:px-16">
+        <div class="max-w-md">
+          <p class="font-accent italic text-2xl sm:text-3xl text-maroon mb-1">Made to order,</p>
+          <h1 class="font-accent text-4xl sm:text-5xl lg:text-6xl text-navy leading-tight">made for your space.</h1>
+          <div class="w-16 h-0.5 bg-maroon my-5" aria-hidden="true"></div>
+          <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+            One print is just the beginning. Build a wall that belongs together. Your designs. Your room. Your vibe.
+          </p>
+          <div class="mt-7">
+            <a href="#catalog" class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-navy text-white font-display font-semibold tracking-wide hover:bg-navy-600 transition-colors cursor-pointer">
+              BROWSE DESIGNS
+            </a>
+          </div>
+          <p class="mt-4 text-sm italic text-slate-500">One print is never the plan — build the whole wall.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. Three steps ============ -->
+  <section id="steps" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 reveal">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-center text-navy mb-10 sm:mb-12">Design your wall in three steps</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr_auto_1fr] gap-8 sm:gap-4 items-start">
+      <div class="flex flex-col items-center text-center">
+        <span class="h-12 w-12 rounded-full bg-maroon text-white font-display font-bold flex items-center justify-center mb-4">1</span>
+        <i class="ph ph-armchair text-4xl text-navy mb-3" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold text-lg text-navy">Pick your room</h3>
+        <p class="mt-2 text-sm text-slate-500 max-w-[240px]">Bathroom. Bedroom. Living room. If it's got a wall, we've got you covered.</p>
+      </div>
+
+      <div class="hidden sm:flex items-center justify-center pt-6 text-slate-300" aria-hidden="true">
+        <svg class="icon-svg text-xl" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+      </div>
+
+      <div class="flex flex-col items-center text-center">
+        <span class="h-12 w-12 rounded-full bg-maroon text-white font-display font-bold flex items-center justify-center mb-4">2</span>
+        <i class="ph ph-stack text-4xl text-navy mb-3" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold text-lg text-navy">Mix and match</h3>
+        <p class="mt-2 text-sm text-slate-500 max-w-[240px]">Combine prints you love. Build an arrangement that's totally YOU.</p>
+      </div>
+
+      <div class="hidden sm:flex items-center justify-center pt-6 text-slate-300" aria-hidden="true">
+        <svg class="icon-svg text-xl" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+      </div>
+
+      <div class="flex flex-col items-center text-center">
+        <span class="h-12 w-12 rounded-full bg-maroon text-white font-display font-bold flex items-center justify-center mb-4">3</span>
+        <i class="ph ph-gift text-4xl text-navy mb-3" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold text-lg text-navy">Printed just for you</h3>
+        <p class="mt-2 text-sm text-slate-500 max-w-[240px]">We print it fresh. Ship it fast. You hang it and fall in love.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. Gallery wall packages ============ -->
+  <section id="gallery-wall" class="bg-paleblue py-12 sm:py-20 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-bold text-2xl sm:text-3xl text-center text-navy uppercase">CREATE THE PERFECT GALLERY WALL</h2>
+      <p class="mt-2 text-center text-maroon font-medium text-sm sm:text-base max-w-xl mx-auto">Pick the size that fits your wall. Stack prints and stack savings.</p>
+
+      <div class="mt-10 grid sm:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg overflow-hidden border border-slate-200">
+          <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>package-small-wall.jpg</span></div><img src="assets/images/package-small-wall.jpg" alt="Small gallery wall with two framed prints above a bathroom vanity" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-navy">2-Print Gallery</h3>
+            <p class="mt-1.5 text-sm text-slate-600">Perfect for bathrooms, entryways, and cozy corners.</p>
+            <p class="mt-2"><span class="font-display font-bold text-maroon text-lg sm:text-xl">$10.95</span> <span class="text-sm text-slate-600">per print (8"×10")</span></p>
+            <p class="mt-1 text-xs text-slate-500">Mix &amp; match <span class="font-bold text-maroon">ANY 2</span> from 5,000+ designs</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden border border-slate-200">
+          <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>package-medium-wall.jpg</span></div><img src="assets/images/package-medium-wall.jpg" alt="Medium gallery wall with three to four framed prints above a bed" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-navy">3–4 Print Gallery <span class="text-maroon">(Most Popular)</span></h3>
+            <p class="mt-1.5 text-sm text-slate-600">The sweet spot for bedrooms, offices, and dining rooms.</p>
+            <p class="mt-2"><span class="font-display font-bold text-maroon text-lg sm:text-xl">$8.95</span> <span class="text-sm text-slate-600">per print (8"×10")</span></p>
+            <p class="mt-1 text-xs text-slate-500">Mix &amp; match <span class="font-bold text-maroon">ANY 3–4</span> from 5,000+ designs</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden border border-slate-200">
+          <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>package-large-wall.jpg</span></div><img src="assets/images/package-large-wall.jpg" alt="Statement gallery wall with five to six framed prints above a sofa" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-navy">5–6 Print Gallery</h3>
+            <p class="mt-1.5 text-sm text-slate-600">Go bold. Make a statement in living rooms and feature walls.</p>
+            <p class="mt-2"><span class="font-display font-bold text-maroon text-lg sm:text-xl">$7.95</span> <span class="text-sm text-slate-600">per print (8"×10")</span></p>
+            <p class="mt-1 text-xs text-slate-500">Mix &amp; match <span class="font-bold text-maroon">ANY 5–6</span> from 5,000+ designs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. Unique collections ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 reveal">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-center text-navy mb-10">Unique Collections for Every Wall and Every Room</h2>
+
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="rounded-lg overflow-hidden border border-slate-200">
+        <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>collection-bathroom.jpg</span></div><img src="assets/images/collection-bathroom.jpg" alt="Bathroom styled with a framed art trio" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-navy">Bathroom</h3>
+          <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Turn your bathroom into a vibe. Not just a place you rush through.</p>
+          <a href="#catalog" class="mt-3 inline-flex items-center gap-1 text-xs font-display font-bold text-maroon hover:text-navy transition-colors uppercase tracking-wide">SHOP BATHROOM <svg class="icon-svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a>
+        </div>
+      </div>
+
+      <div class="rounded-lg overflow-hidden border border-slate-200">
+        <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>collection-kitchen.jpg</span></div><img src="assets/images/collection-kitchen.jpg" alt="Kitchen styled with a framed art set" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-navy">Kitchen</h3>
+          <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Good design makes your coffee taste better. Trust us on this.</p>
+          <a href="#catalog" class="mt-3 inline-flex items-center gap-1 text-xs font-display font-bold text-maroon hover:text-navy transition-colors uppercase tracking-wide">SHOP KITCHEN <svg class="icon-svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a>
+        </div>
+      </div>
+
+      <div class="rounded-lg overflow-hidden border border-slate-200">
+        <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>collection-nursery.jpg</span></div><img src="assets/images/collection-nursery.jpg" alt="Nursery styled with a framed art set" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-navy">Nursery</h3>
+          <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Build a space that grows with them. Today's nursery. Tomorrow's happy place.</p>
+          <a href="#catalog" class="mt-3 inline-flex items-center gap-1 text-xs font-display font-bold text-maroon hover:text-navy transition-colors uppercase tracking-wide">SHOP NURSERY <svg class="icon-svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="flex items-start gap-4">
+        <span class="h-14 w-14 flex-shrink-0 rounded-full border-2 border-navy flex items-center justify-center"><i class="ph ph-armchair text-2xl text-navy" aria-hidden="true"></i></span>
+        <div>
+          <h3 class="font-display font-semibold text-navy">Living Room</h3>
+          <p class="mt-1 text-sm text-slate-500">Make it the room everyone wants to hang out in.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="h-14 w-14 flex-shrink-0 rounded-full border-2 border-navy flex items-center justify-center"><i class="ph ph-bed text-2xl text-navy" aria-hidden="true"></i></span>
+        <div>
+          <h3 class="font-display font-semibold text-navy">Bedroom</h3>
+          <p class="mt-1 text-sm text-slate-500">Your bedroom should feel like a damn sanctuary. Let's make that happen.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="h-14 w-14 flex-shrink-0 rounded-full border-2 border-navy flex items-center justify-center"><i class="ph ph-desktop text-2xl text-navy" aria-hidden="true"></i></span>
+        <div>
+          <h3 class="font-display font-semibold text-navy">Office</h3>
+          <p class="mt-1 text-sm text-slate-500">Surround yourself with inspiration. Stay focused. Stay winning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. Choose from 3,000+ designs ============ -->
+  <section id="catalog" class="bg-paleblue py-12 sm:py-20 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[minmax(0,340px)_1fr] gap-10 items-center">
+        <div>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-navy leading-tight">Choose from</h2>
+          <p class="font-accent font-bold text-maroon text-5xl sm:text-6xl leading-none my-2">3,000+</p>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-navy leading-tight">designs</h2>
+          <p class="mt-5 text-slate-600 leading-relaxed">
+            Every style, every mood, every room — all in one place, ready to mix into your own combination.
+          </p>
+          <a href="#catalog" class="mt-6 inline-flex items-center justify-center h-12 px-6 rounded-full bg-navy text-white font-display font-semibold text-sm tracking-wide hover:bg-navy-600 transition-colors cursor-pointer">
+            EXPLORE THE FULL CATALOG
+          </a>
+        </div>
+
+        <div class="grid grid-cols-5 gap-2 sm:gap-3">
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-01.jpg</span></div><img src="assets/images/thumb-01.jpg" alt="Lake dock at sunrise design" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-02.jpg</span></div><img src="assets/images/thumb-02.jpg" alt="Sunbeams through forest trees design" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-03.jpg</span></div><img src="assets/images/thumb-03.jpg" alt="European city street design" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-04.jpg</span></div><img src="assets/images/thumb-04.jpg" alt="Botanical eucalyptus leaves design" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-05.jpg</span></div><img src="assets/images/thumb-05.jpg" alt="Pink blossom branch design" loading="lazy" onerror="this.style.display='none'"></div>
+
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-06.jpg</span></div><img src="assets/images/thumb-06.jpg" alt="Ocean wave design" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-07.jpg</span></div><img src="assets/images/thumb-07.jpg" alt="City skyline design" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-08.jpg</span></div><img src="assets/images/thumb-08.jpg" alt="Rustic wooden arch design" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-09.jpg</span></div><img src="assets/images/thumb-09.jpg" alt="Vintage red barn design" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="ph rounded-md aspect-square"><div class="ph-label"><i class="ph ph-image text-lg" aria-hidden="true"></i><span>thumb-10.jpg</span></div><img src="assets/images/thumb-10.jpg" alt="Foggy pine forest design" loading="lazy" onerror="this.style.display='none'"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. Trust badges ============ -->
+  <section class="border-t border-slate-100 py-10 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-5 gap-8 sm:gap-4 text-center">
+      <div class="flex flex-col items-center gap-2">
+        <i class="ph ph-diamond text-3xl text-navy" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold text-xs sm:text-sm tracking-wide text-navy">Premium Quality</h3>
+        <p class="text-xs text-slate-500">Museum-grade prints that last a lifetime</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <i class="ph ph-shield-check text-3xl text-navy" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold text-xs sm:text-sm tracking-wide text-navy">Made with Care</h3>
+        <p class="text-xs text-slate-500">Thoughtfully crafted just for you</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <i class="ph ph-truck text-3xl text-navy" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold text-xs sm:text-sm tracking-wide text-navy">Fast &amp; Safe Shipping</h3>
+        <p class="text-xs text-slate-500">Carefully packed. Delivered to you.</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <i class="ph ph-heart text-3xl text-navy" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold text-xs sm:text-sm tracking-wide text-navy">Love It Guarantee</h3>
+        <p class="text-xs text-slate-500">If it's not perfect, we'll make it right.</p>
+      </div>
+      <div class="flex flex-col items-center gap-2 col-span-2 sm:col-span-1">
+        <i class="ph ph-lock-key text-3xl text-navy" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold text-xs sm:text-sm tracking-wide text-navy">Secure Checkout</h3>
+        <p class="text-xs text-slate-500">Safe, easy, and secure payments</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 10. Footer ============ -->
+<footer class="bg-navy text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="sm:col-span-2 lg:col-span-1">
+      <div class="ph rounded-md bg-white/5" style="width:160px;height:46px;">
+        <div class="ph-label text-white/60"><i class="ph ph-image text-lg" aria-hidden="true"></i><span class="text-[10px]">logo.png</span></div>
+        <img src="assets/images/logo.png" alt="Buzz Unplugged" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <p class="mt-3 text-xs tracking-widest text-white/60">ART &amp; DESIGNS</p>
+      <div class="mt-4 flex items-center gap-3">
+        <a href="#" aria-label="Instagram" class="h-9 w-9 rounded-full border border-white/30 flex items-center justify-center hover:border-white hover:bg-white/10 transition-colors cursor-pointer"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Facebook" class="h-9 w-9 rounded-full border border-white/30 flex items-center justify-center hover:border-white hover:bg-white/10 transition-colors cursor-pointer"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Pinterest" class="h-9 w-9 rounded-full border border-white/30 flex items-center justify-center hover:border-white hover:bg-white/10 transition-colors cursor-pointer"><i class="ph ph-pinterest-logo" aria-hidden="true"></i></a>
+        <a href="#" aria-label="TikTok" class="h-9 w-9 rounded-full border border-white/30 flex items-center justify-center hover:border-white hover:bg-white/10 transition-colors cursor-pointer"><i class="ph ph-tiktok-logo" aria-hidden="true"></i></a>
+        <a href="#" aria-label="YouTube" class="h-9 w-9 rounded-full border border-white/30 flex items-center justify-center hover:border-white hover:bg-white/10 transition-colors cursor-pointer"><i class="ph ph-youtube-logo" aria-hidden="true"></i></a>
+      </div>
+      <p class="mt-4 text-sm text-white/70">Follow us @buzzunplugged</p>
+    </div>
+
+    <nav aria-label="Shop">
+      <h3 class="font-display font-semibold text-white text-sm tracking-wide mb-4">SHOP</h3>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="#catalog" class="hover:text-white transition-colors">All Prints</a></li>
+        <li><a href="#catalog" class="hover:text-white transition-colors">Best Sellers</a></li>
+        <li><a href="#gallery-wall" class="hover:text-white transition-colors">Build Your Wall</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Gift Cards</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Collections">
+      <h3 class="font-display font-semibold text-white text-sm tracking-wide mb-4">COLLECTIONS</h3>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="#catalog" class="hover:text-white transition-colors">Lovers' Lane Art</a></li>
+        <li><a href="#catalog" class="hover:text-white transition-colors">Premium Prints</a></li>
+        <li><a href="#catalog" class="hover:text-white transition-colors">Patent Art</a></li>
+        <li><a href="#catalog" class="hover:text-white transition-colors">Nursery Art</a></li>
+        <li><a href="#catalog" class="hover:text-white transition-colors">Music Art</a></li>
+        <li><a href="#catalog" class="hover:text-white transition-colors">Dictionary Art</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Help">
+      <h3 class="font-display font-semibold text-white text-sm tracking-wide mb-4">HELP</h3>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Shipping &amp; Delivery</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Returns &amp; Exchanges</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Track Your Order</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h3 class="font-display font-semibold text-white text-sm tracking-wide mb-4">Let's stay in touch</h3>
+      <p class="text-sm text-white/70 mb-4">Be the first to know about new designs and exclusive offers.</p>
+      <form class="flex rounded-full overflow-hidden bg-white" onsubmit="event.preventDefault(); this.reset();">
+        <label for="newsletter-email" class="sr-only">Email address</label>
+        <input id="newsletter-email" type="email" required placeholder="Enter your email"
+          class="flex-1 min-w-0 h-11 rounded-full px-4 text-sm text-navy placeholder-slate-400 focus:outline-none">
+        <button type="submit" aria-label="Subscribe" class="h-11 w-11 flex-shrink-0 rounded-full bg-navy hover:bg-navy-600 transition-colors flex items-center justify-center cursor-pointer -ml-1">
+          <svg class="icon-svg text-lg text-white" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="border-t border-white/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 text-center text-xs text-white/50">
+      <p>© 2024 Buzz Unplugged Art &amp; Designs. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Scroll reveal
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
