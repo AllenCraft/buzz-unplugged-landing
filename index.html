@@ -154,11 +154,11 @@
     transition: background 150ms ease, color 150ms ease;
   }
   .gw-arrow:hover { background: #1B2A4A; color: #fff; }
-  .gw-arrow-prev { left: -14px; }
-  .gw-arrow-next { right: -14px; }
+  .gw-arrow-prev { left: 16px; }
+  .gw-arrow-next { right: 16px; }
   @media (min-width: 640px) {
-    .gw-arrow-prev { left: -20px; }
-    .gw-arrow-next { right: -20px; }
+    .gw-arrow-prev { left: 28px; }
+    .gw-arrow-next { right: 28px; }
   }
 
   .gw-dot {
@@ -363,9 +363,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-display font-bold text-2xl sm:text-3xl text-center text-navy uppercase">CREATE THE PERFECT GALLERY WALL</h2>
       <p class="mt-2 text-center text-maroon font-medium text-sm sm:text-base max-w-xl mx-auto">Swipe through our sets and hover the art to see pricing.</p>
+    </div>
 
-      <div class="mt-10 relative max-w-3xl mx-auto">
-        <div id="gw-viewport" class="gw-viewport overflow-hidden rounded-lg" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Gallery wall print sets">
+    <div class="mt-10 relative w-full">
+        <div id="gw-viewport" class="gw-viewport overflow-hidden" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Gallery wall print sets">
           <div id="gw-track" class="gw-track flex">
 
             <!-- Slide: Set of 2 -->
@@ -467,7 +468,6 @@
           <button type="button" class="gw-dot" data-index="3" role="tab" aria-selected="false" aria-label="Set of 5"></button>
           <button type="button" class="gw-dot" data-index="4" role="tab" aria-selected="false" aria-label="Set of 6"></button>
         </div>
-      </div>
     </div>
   </section>
 
