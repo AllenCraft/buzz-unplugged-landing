@@ -9,11 +9,11 @@ Until a file exists, that spot shows a labeled gray placeholder.
 | `logo.png` | ~360×104px, transparent bg | Header + footer logo (fox-head icon + wordmark) |
 | `promo-banner.jpg` | 2000×400px (5:1) | Top promo strip — single flat image with headline/CTA baked in |
 | `hero-main-gallery-wall.jpg` | 2400×1400px | Full-bleed hero — cream couch styled beneath a gallery wall |
-| `gallery-set-02.jpg` | 1600×900px (16:9) | Gallery wall carousel — Set of 2 slide |
-| `gallery-set-03.jpg` | 1600×900px (16:9) | Gallery wall carousel — Set of 3 slide |
-| `gallery-set-04.jpg` | 1600×900px (16:9) | Gallery wall carousel — Set of 4 slide |
-| `gallery-set-05.jpg` | 1600×900px (16:9) | Gallery wall carousel — Set of 5 slide |
-| `gallery-set-06.jpg` | 1600×900px (16:9) | Gallery wall carousel — Set of 6 slide |
+| `gallery-set-02.jpg` | 2100×900px (21:9) | Gallery wall carousel — Set of 2 slide |
+| `gallery-set-03.jpg` | 2100×900px (21:9) | Gallery wall carousel — Set of 3 slide |
+| `gallery-set-04.jpg` | 2100×900px (21:9) | Gallery wall carousel — Set of 4 slide |
+| `gallery-set-05.jpg` | 2100×900px (21:9) | Gallery wall carousel — Set of 5 slide |
+| `gallery-set-06.jpg` | 2100×900px (21:9) | Gallery wall carousel — Set of 6 slide |
 | `collection-bathroom.jpg` | 800×600px | Unique Collections — Bathroom |
 | `collection-kitchen.jpg` | 800×600px | Unique Collections — Kitchen |
 | `collection-nursery.jpg` | 800×600px | Unique Collections — Nursery |
