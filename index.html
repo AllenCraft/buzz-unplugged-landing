@@ -85,6 +85,87 @@
   .skip-link:focus { transform: translateY(0); }
 
   .icon-svg { display: inline-block; flex-shrink: 0; }
+
+  /* Gallery wall carousel */
+  .gw-viewport { touch-action: pan-y; cursor: grab; outline-offset: 4px; }
+  .gw-viewport:active { cursor: grabbing; }
+  .gw-track { transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .gw-track.is-dragging { transition: none; }
+  .gw-slide { user-select: none; }
+  .gw-slide img { pointer-events: none; }
+
+  .gw-hotspot {
+    position: absolute; width: 52px; height: 52px; transform: translate(-50%, -50%);
+    border-radius: 9999px; border: 0; background: transparent; cursor: pointer; padding: 0;
+  }
+  .gw-hotspot-ring {
+    position: absolute; inset: 0; border-radius: 9999px;
+    border: 2px solid rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.5);
+    animation: gw-pulse 2.4s ease-in-out infinite;
+    transition: background 200ms ease, transform 200ms ease;
+  }
+  .gw-hotspot:hover .gw-hotspot-ring,
+  .gw-hotspot:focus-visible .gw-hotspot-ring,
+  .gw-hotspot[aria-expanded="true"] .gw-hotspot-ring {
+    background: rgba(255,255,255,0.32);
+    transform: scale(1.08);
+    animation-play-state: paused;
+  }
+  @keyframes gw-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.45); }
+    50% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gw-hotspot-ring { animation: none; }
+  }
+
+  .gw-popup {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, calc(-50% + 8px));
+    width: 220px; background: #fff; border-radius: 10px; padding: 14px 16px;
+    box-shadow: 0 12px 32px rgba(14,23,42,0.22);
+    opacity: 0; pointer-events: none; transition: opacity 180ms ease, transform 180ms ease;
+    z-index: 20;
+  }
+  .gw-hotspot:hover + .gw-popup,
+  .gw-hotspot:focus-visible + .gw-popup,
+  .gw-popup:hover,
+  .gw-popup.is-open {
+    opacity: 1; pointer-events: auto; transform: translate(-50%, -50%);
+  }
+  .gw-popup-close {
+    position: absolute; top: 6px; right: 8px; width: 22px; height: 22px;
+    border: 0; background: transparent; color: #94A3B8; font-size: 18px; line-height: 1; cursor: pointer;
+  }
+  .gw-popup-close:hover { color: #1B2A4A; }
+  .gw-popup-link {
+    margin-top: 8px; display: inline-flex; align-items: center; gap: 4px;
+    font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.02em;
+    text-transform: uppercase; color: #7C2333; text-decoration: none;
+  }
+  .gw-popup-link:hover { color: #1B2A4A; }
+
+  .gw-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 40px; height: 40px; border-radius: 9999px; border: 0;
+    background: #fff; color: #1B2A4A; box-shadow: 0 4px 14px rgba(14,23,42,0.18);
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    transition: background 150ms ease, color 150ms ease;
+  }
+  .gw-arrow:hover { background: #1B2A4A; color: #fff; }
+  .gw-arrow-prev { left: -14px; }
+  .gw-arrow-next { right: -14px; }
+  @media (min-width: 640px) {
+    .gw-arrow-prev { left: -20px; }
+    .gw-arrow-next { right: -20px; }
+  }
+
+  .gw-dot {
+    width: 9px; height: 9px; border-radius: 9999px; border: 0; padding: 0;
+    background: #C7D2E0; cursor: pointer; transition: background 150ms ease, transform 150ms ease;
+  }
+  .gw-dot.is-active { background: #7C2333; transform: scale(1.2); }
 </style>
 </head>
 
@@ -277,41 +358,114 @@
     </div>
   </section>
 
-  <!-- ============ 6. Gallery wall packages ============ -->
+  <!-- ============ 6. Gallery wall packages (swipeable carousel) ============ -->
   <section id="gallery-wall" class="bg-paleblue py-12 sm:py-20 reveal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-display font-bold text-2xl sm:text-3xl text-center text-navy uppercase">CREATE THE PERFECT GALLERY WALL</h2>
-      <p class="mt-2 text-center text-maroon font-medium text-sm sm:text-base max-w-xl mx-auto">Pick the size that fits your wall. Stack prints and stack savings.</p>
+      <p class="mt-2 text-center text-maroon font-medium text-sm sm:text-base max-w-xl mx-auto">Swipe through our sets and hover the art to see pricing.</p>
 
-      <div class="mt-10 grid sm:grid-cols-3 gap-6">
-        <div class="bg-white rounded-lg overflow-hidden border border-slate-200">
-          <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>package-small-wall.jpg</span></div><img src="assets/images/package-small-wall.jpg" alt="Small gallery wall with two framed prints above a bathroom vanity" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="p-5">
-            <h3 class="font-display font-semibold text-navy">2-Print Gallery</h3>
-            <p class="mt-1.5 text-sm text-slate-600">Perfect for bathrooms, entryways, and cozy corners.</p>
-            <p class="mt-2"><span class="font-display font-bold text-maroon text-lg sm:text-xl">$10.95</span> <span class="text-sm text-slate-600">per print (8"×10")</span></p>
-            <p class="mt-1 text-xs text-slate-500">Mix &amp; match <span class="font-bold text-maroon">ANY 2</span> from 5,000+ designs</p>
+      <div class="mt-10 relative max-w-3xl mx-auto">
+        <div id="gw-viewport" class="gw-viewport overflow-hidden rounded-lg" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Gallery wall print sets">
+          <div id="gw-track" class="gw-track flex">
+
+            <!-- Slide: Set of 2 -->
+            <div class="gw-slide flex-shrink-0 w-full relative" aria-roledescription="slide" aria-label="1 of 5">
+              <div class="ph aspect-[16/9]"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>gallery-set-02.jpg</span></div><img src="assets/images/gallery-set-02.jpg" alt="Set of 2 framed prints styled on a wall" loading="lazy" onerror="this.style.display='none'"></div>
+              <button type="button" class="gw-hotspot" style="top:50%;left:50%;" aria-expanded="false" aria-controls="gw-popup-2" data-popup="gw-popup-2">
+                <span class="gw-hotspot-ring" aria-hidden="true"></span>
+                <span class="sr-only">Show pricing for the Set of 2</span>
+              </button>
+              <div id="gw-popup-2" class="gw-popup" role="dialog" aria-label="Set of 2 pricing">
+                <button type="button" class="gw-popup-close" aria-label="Close">&times;</button>
+                <p class="font-display font-semibold text-navy text-sm">Set of 2</p>
+                <p class="mt-0.5 font-display font-bold text-maroon text-xl">$20.85</p>
+                <p class="text-xs text-slate-500">$10.43 per print &middot; 8"&times;10" unframed</p>
+                <a href="https://www.amazon.com/dp/B0HHBVTRQ4" target="_blank" rel="noopener noreferrer" class="gw-popup-link">Shop this set <svg class="icon-svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a>
+              </div>
+            </div>
+
+            <!-- Slide: Set of 3 -->
+            <div class="gw-slide flex-shrink-0 w-full relative" aria-roledescription="slide" aria-label="2 of 5">
+              <div class="ph aspect-[16/9]"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>gallery-set-03.jpg</span></div><img src="assets/images/gallery-set-03.jpg" alt="Set of 3 framed prints styled on a wall" loading="lazy" onerror="this.style.display='none'"></div>
+              <button type="button" class="gw-hotspot" style="top:50%;left:50%;" aria-expanded="false" aria-controls="gw-popup-3" data-popup="gw-popup-3">
+                <span class="gw-hotspot-ring" aria-hidden="true"></span>
+                <span class="sr-only">Show pricing for the Set of 3</span>
+              </button>
+              <div id="gw-popup-3" class="gw-popup" role="dialog" aria-label="Set of 3 pricing">
+                <button type="button" class="gw-popup-close" aria-label="Close">&times;</button>
+                <p class="font-display font-semibold text-navy text-sm">Set of 3</p>
+                <p class="mt-0.5 font-display font-bold text-maroon text-xl">$31.27</p>
+                <p class="text-xs text-slate-500">$10.42 per print &middot; 8"&times;10" unframed</p>
+                <a href="https://www.amazon.com/dp/B0HHBYL4RS" target="_blank" rel="noopener noreferrer" class="gw-popup-link">Shop this set <svg class="icon-svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a>
+              </div>
+            </div>
+
+            <!-- Slide: Set of 4 -->
+            <div class="gw-slide flex-shrink-0 w-full relative" aria-roledescription="slide" aria-label="3 of 5">
+              <div class="ph aspect-[16/9]"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>gallery-set-04.jpg</span></div><img src="assets/images/gallery-set-04.jpg" alt="Set of 4 framed prints styled on a wall" loading="lazy" onerror="this.style.display='none'"></div>
+              <button type="button" class="gw-hotspot" style="top:50%;left:50%;" aria-expanded="false" aria-controls="gw-popup-4" data-popup="gw-popup-4">
+                <span class="gw-hotspot-ring" aria-hidden="true"></span>
+                <span class="sr-only">Show pricing for the Set of 4</span>
+              </button>
+              <div id="gw-popup-4" class="gw-popup" role="dialog" aria-label="Set of 4 pricing">
+                <button type="button" class="gw-popup-close" aria-label="Close">&times;</button>
+                <p class="font-display font-semibold text-navy text-sm">Set of 4 <span class="text-maroon">(Most Popular)</span></p>
+                <p class="mt-0.5 font-display font-bold text-maroon text-xl">$37.90</p>
+                <p class="text-xs text-slate-500">$9.48 per print &middot; 8"&times;10" unframed</p>
+                <a href="https://www.amazon.com/dp/B0HHFYTVXJ" target="_blank" rel="noopener noreferrer" class="gw-popup-link">Shop this set <svg class="icon-svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a>
+              </div>
+            </div>
+
+            <!-- Slide: Set of 5 -->
+            <div class="gw-slide flex-shrink-0 w-full relative" aria-roledescription="slide" aria-label="4 of 5">
+              <div class="ph aspect-[16/9]"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>gallery-set-05.jpg</span></div><img src="assets/images/gallery-set-05.jpg" alt="Set of 5 framed prints styled on a wall" loading="lazy" onerror="this.style.display='none'"></div>
+              <button type="button" class="gw-hotspot" style="top:50%;left:50%;" aria-expanded="false" aria-controls="gw-popup-5" data-popup="gw-popup-5">
+                <span class="gw-hotspot-ring" aria-hidden="true"></span>
+                <span class="sr-only">Show pricing for the Set of 5</span>
+              </button>
+              <div id="gw-popup-5" class="gw-popup" role="dialog" aria-label="Set of 5 pricing">
+                <button type="button" class="gw-popup-close" aria-label="Close">&times;</button>
+                <p class="font-display font-semibold text-navy text-sm">Set of 5</p>
+                <p class="mt-0.5 font-display font-bold text-maroon text-xl">$47.38</p>
+                <p class="text-xs text-slate-500">$9.48 per print &middot; 8"&times;10" unframed</p>
+                <a href="https://www.amazon.com/dp/B0HHFZ4GMY" target="_blank" rel="noopener noreferrer" class="gw-popup-link">Shop this set <svg class="icon-svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a>
+              </div>
+            </div>
+
+            <!-- Slide: Set of 6 -->
+            <div class="gw-slide flex-shrink-0 w-full relative" aria-roledescription="slide" aria-label="5 of 5">
+              <div class="ph aspect-[16/9]"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>gallery-set-06.jpg</span></div><img src="assets/images/gallery-set-06.jpg" alt="Set of 6 framed prints styled on a wall" loading="lazy" onerror="this.style.display='none'"></div>
+              <button type="button" class="gw-hotspot" style="top:50%;left:50%;" aria-expanded="false" aria-controls="gw-popup-6" data-popup="gw-popup-6">
+                <span class="gw-hotspot-ring" aria-hidden="true"></span>
+                <span class="sr-only">Show pricing for the Set of 6</span>
+              </button>
+              <div id="gw-popup-6" class="gw-popup" role="dialog" aria-label="Set of 6 pricing">
+                <button type="button" class="gw-popup-close" aria-label="Close">&times;</button>
+                <p class="font-display font-semibold text-navy text-sm">Set of 6</p>
+                <p class="mt-0.5 font-display font-bold text-maroon text-xl">$56.85</p>
+                <p class="text-xs text-slate-500">$9.48 per print &middot; 8"&times;10" unframed</p>
+                <a href="https://www.amazon.com/dp/B0HHG2ZYY7" target="_blank" rel="noopener noreferrer" class="gw-popup-link">Shop this set <svg class="icon-svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div class="bg-white rounded-lg overflow-hidden border border-slate-200">
-          <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>package-medium-wall.jpg</span></div><img src="assets/images/package-medium-wall.jpg" alt="Medium gallery wall with three to four framed prints above a bed" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="p-5">
-            <h3 class="font-display font-semibold text-navy">3–4 Print Gallery <span class="text-maroon">(Most Popular)</span></h3>
-            <p class="mt-1.5 text-sm text-slate-600">The sweet spot for bedrooms, offices, and dining rooms.</p>
-            <p class="mt-2"><span class="font-display font-bold text-maroon text-lg sm:text-xl">$8.95</span> <span class="text-sm text-slate-600">per print (8"×10")</span></p>
-            <p class="mt-1 text-xs text-slate-500">Mix &amp; match <span class="font-bold text-maroon">ANY 3–4</span> from 5,000+ designs</p>
-          </div>
-        </div>
+        <!-- Arrow controls -->
+        <button type="button" id="gw-prev" class="gw-arrow gw-arrow-prev" aria-label="Previous set">
+          <svg class="icon-svg" viewBox="0 0 256 256" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg>
+        </button>
+        <button type="button" id="gw-next" class="gw-arrow gw-arrow-next" aria-label="Next set">
+          <svg class="icon-svg" viewBox="0 0 256 256" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
+        </button>
 
-        <div class="bg-white rounded-lg overflow-hidden border border-slate-200">
-          <div class="ph aspect-[4/3] rounded-t-lg"><div class="ph-label"><i class="ph ph-image text-xl" aria-hidden="true"></i><span>package-large-wall.jpg</span></div><img src="assets/images/package-large-wall.jpg" alt="Statement gallery wall with five to six framed prints above a sofa" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="p-5">
-            <h3 class="font-display font-semibold text-navy">5–6 Print Gallery</h3>
-            <p class="mt-1.5 text-sm text-slate-600">Go bold. Make a statement in living rooms and feature walls.</p>
-            <p class="mt-2"><span class="font-display font-bold text-maroon text-lg sm:text-xl">$7.95</span> <span class="text-sm text-slate-600">per print (8"×10")</span></p>
-            <p class="mt-1 text-xs text-slate-500">Mix &amp; match <span class="font-bold text-maroon">ANY 5–6</span> from 5,000+ designs</p>
-          </div>
+        <!-- Dot indicators -->
+        <div class="mt-5 flex items-center justify-center gap-2" role="tablist" aria-label="Choose a print set">
+          <button type="button" class="gw-dot is-active" data-index="0" role="tab" aria-selected="true" aria-label="Set of 2"></button>
+          <button type="button" class="gw-dot" data-index="1" role="tab" aria-selected="false" aria-label="Set of 3"></button>
+          <button type="button" class="gw-dot" data-index="2" role="tab" aria-selected="false" aria-label="Set of 4"></button>
+          <button type="button" class="gw-dot" data-index="3" role="tab" aria-selected="false" aria-label="Set of 5"></button>
+          <button type="button" class="gw-dot" data-index="4" role="tab" aria-selected="false" aria-label="Set of 6"></button>
         </div>
       </div>
     </div>
@@ -538,6 +692,108 @@
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
   }
+
+  // Gallery wall carousel
+  (function () {
+    const viewport = document.getElementById('gw-viewport');
+    if (!viewport) return;
+    const track = document.getElementById('gw-track');
+    const slides = Array.from(track.children);
+    const dots = Array.from(document.querySelectorAll('.gw-dot'));
+    const prevBtn = document.getElementById('gw-prev');
+    const nextBtn = document.getElementById('gw-next');
+    let index = 0;
+    let dragStartX = 0;
+    let dragDeltaX = 0;
+    let dragging = false;
+    let widthAtDragStart = 0;
+
+    function goTo(i) {
+      index = Math.max(0, Math.min(slides.length - 1, i));
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, di) => {
+        dot.classList.toggle('is-active', di === index);
+        dot.setAttribute('aria-selected', String(di === index));
+      });
+      closeAllPopups();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+    dots.forEach(dot => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
+
+    viewport.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { goTo(index - 1); }
+      if (e.key === 'ArrowRight') { goTo(index + 1); }
+    });
+
+    // Drag / swipe
+    function onPointerDown(e) {
+      dragging = true;
+      dragStartX = e.clientX;
+      dragDeltaX = 0;
+      widthAtDragStart = viewport.getBoundingClientRect().width;
+      track.classList.add('is-dragging');
+      viewport.setPointerCapture(e.pointerId);
+    }
+    function onPointerMove(e) {
+      if (!dragging) return;
+      dragDeltaX = e.clientX - dragStartX;
+      const percent = (dragDeltaX / widthAtDragStart) * 100;
+      track.style.transform = `translateX(calc(-${index * 100}% + ${percent}%))`;
+    }
+    function onPointerUp() {
+      if (!dragging) return;
+      dragging = false;
+      track.classList.remove('is-dragging');
+      const threshold = widthAtDragStart * 0.15;
+      if (dragDeltaX > threshold) {
+        goTo(index - 1);
+      } else if (dragDeltaX < -threshold) {
+        goTo(index + 1);
+      } else {
+        goTo(index);
+      }
+    }
+    viewport.addEventListener('pointerdown', onPointerDown);
+    viewport.addEventListener('pointermove', onPointerMove);
+    viewport.addEventListener('pointerup', onPointerUp);
+    viewport.addEventListener('pointercancel', onPointerUp);
+
+    // Hotspot popups: hover works via CSS; this adds tap/click support for touch users
+    const hotspots = Array.from(document.querySelectorAll('.gw-hotspot'));
+    function closeAllPopups() {
+      hotspots.forEach(h => {
+        h.setAttribute('aria-expanded', 'false');
+        const popup = document.getElementById(h.dataset.popup);
+        if (popup) popup.classList.remove('is-open');
+      });
+    }
+    hotspots.forEach(hotspot => {
+      hotspot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const popup = document.getElementById(hotspot.dataset.popup);
+        const isOpen = popup.classList.contains('is-open');
+        closeAllPopups();
+        if (!isOpen) {
+          popup.classList.add('is-open');
+          hotspot.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    document.querySelectorAll('.gw-popup-close').forEach(closeBtn => {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeAllPopups();
+      });
+    });
+    document.addEventListener('click', closeAllPopups);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAllPopups();
+    });
+
+    goTo(0);
+  })();
 </script>
 
 </body>
